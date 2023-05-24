@@ -1,0 +1,34 @@
+[gd_scene load_steps=8 format=3 uid="uid://dib5obidn2lxd"]
+
+[ext_resource type="Script" path="res://Code/Player.gd" id="1_aorbp"]
+[ext_resource type="Texture2D" uid="uid://bi37w12n2lu75" path="res://Assets/Characters/Sadie/sadiePlaceholder.png" id="1_tjfdi"]
+[ext_resource type="Script" path="res://Code/StateMachine.gd" id="3_we065"]
+[ext_resource type="Script" path="res://Code/States/Idle.gd" id="4_euslh"]
+[ext_resource type="Script" path="res://Code/States/Air.gd" id="5_ddgix"]
+[ext_resource type="Script" path="res://Code/States/Run.gd" id="6_n5hnw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sxpcx"]
+radius = 28.0
+height = 110.0
+
+[node name="Sadie" type="CharacterBody2D"]
+script = ExtResource("1_aorbp")
+
+[node name="SadieSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_tjfdi")
+
+[node name="SadieColisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 6)
+shape = SubResource("CapsuleShape2D_sxpcx")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_we065")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("4_euslh")
+
+[node name="Air" type="Node" parent="StateMachine"]
+script = ExtResource("5_ddgix")
+
+[node name="Run" type="Node" parent="StateMachine"]
+script = ExtResource("6_n5hnw")
