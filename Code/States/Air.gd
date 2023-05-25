@@ -19,3 +19,5 @@ func physics_update(delta: float) -> void:
 			state_machine.transition_to("Idle")
 		else:
 			state_machine.transition_to("Run")
+	if Input.is_action_just_pressed("attack"):
+		state_machine.transition_to("Attack")

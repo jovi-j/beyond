@@ -19,3 +19,8 @@ func _physics_process(_delta):
 	elif velocity.x > 0:
 		sprite.flip_h = false
 		weapon_hitbox.position.x = 70
+
+
+func _on_weapon_hitbox_body_entered(body):
+	if(body.has_method("get_damage")):
+		body.get_damage(1)

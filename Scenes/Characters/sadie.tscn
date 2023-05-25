@@ -1,45 +1,80 @@
-[gd_scene load_steps=18 format=3 uid="uid://dib5obidn2lxd"]
+[gd_scene load_steps=24 format=3 uid="uid://dib5obidn2lxd"]
 
 [ext_resource type="Script" path="res://Code/Player.gd" id="1_aorbp"]
 [ext_resource type="Texture2D" uid="uid://cy6ng6c1uk2r4" path="res://Assets/Characters/Sadie/Sprite Sadie Attack.png" id="2_1xp65"]
-[ext_resource type="Texture2D" uid="uid://bslinxlobvdb5" path="res://Assets/Characters/Sadie/Sprite Sadie Idle-Sheet.png" id="2_fphgx"]
 [ext_resource type="Script" path="res://Code/StateMachine.gd" id="3_we065"]
 [ext_resource type="Script" path="res://Code/States/Idle.gd" id="4_euslh"]
+[ext_resource type="Texture2D" uid="uid://bvsjmbix13icn" path="res://Assets/Characters/Sadie/Sprite Sadie Idle Blink.png" id="4_kky2e"]
 [ext_resource type="Script" path="res://Code/States/Air.gd" id="5_ddgix"]
 [ext_resource type="Script" path="res://Code/States/Run.gd" id="6_n5hnw"]
 [ext_resource type="Script" path="res://Scenes/Characters/Attack.gd" id="7_ct6lx"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_00cmj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4kl5"]
+atlas = ExtResource("2_1xp65")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wppar"]
 atlas = ExtResource("2_1xp65")
 region = Rect2(150, 0, 150, 150)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ijyoy"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_78vqb"]
 atlas = ExtResource("2_1xp65")
 region = Rect2(450, 0, 150, 150)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rbrso"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ku0i"]
 atlas = ExtResource("2_1xp65")
 region = Rect2(300, 0, 150, 150)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_s43pv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_enw41"]
+atlas = ExtResource("4_kky2e")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywwdc"]
+atlas = ExtResource("4_kky2e")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clteh"]
+atlas = ExtResource("4_kky2e")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73313"]
+atlas = ExtResource("4_kky2e")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_exuuk"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_00cmj")
+"texture": SubResource("AtlasTexture_w4kl5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ijyoy")
+"texture": SubResource("AtlasTexture_wppar")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rbrso")
+"texture": SubResource("AtlasTexture_78vqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ku0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wppar")
 }],
-"loop": false,
+"loop": true,
 "name": &"Attack",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_fphgx")
+"texture": SubResource("AtlasTexture_enw41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywwdc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clteh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73313")
 }],
 "loop": true,
 "name": &"Idle",
@@ -52,9 +87,8 @@ size = Vector2(81, 62)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_elsl0"]
 size = Vector2(53, 119)
 
-[sub_resource type="Animation" id="Animation_m00ip"]
-resource_name = "attack"
-length = 0.3
+[sub_resource type="Animation" id="Animation_xrg8w"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -62,50 +96,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 2]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WeaponHitbox/WeaponCollision:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:animation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"Attack"]
-}
-
-[sub_resource type="Animation" id="Animation_huhgu"]
-resource_name = "idle"
-length = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("WeaponHitbox/WeaponCollision:disabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"values": [0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -122,27 +116,109 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".:frame")
+tracks/2/path = NodePath("WeaponHitbox/WeaponCollision:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_m00ip"]
+resource_name = "Attack"
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponHitbox/WeaponCollision:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Attack"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.25, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 1]
+}
+
+[sub_resource type="Animation" id="Animation_huhgu"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponHitbox/WeaponCollision:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lyqya"]
 _data = {
-"attack": SubResource("Animation_m00ip"),
-"idle": SubResource("Animation_huhgu")
+"Attack": SubResource("Animation_m00ip"),
+"Idle": SubResource("Animation_huhgu"),
+"RESET": SubResource("Animation_xrg8w")
 }
 
 [node name="Sadie" type="CharacterBody2D"]
 script = ExtResource("1_aorbp")
 
 [node name="SadieSprite" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_s43pv")
+sprite_frames = SubResource("SpriteFrames_exuuk")
 animation = &"Idle"
 
 [node name="WeaponHitbox" type="Area2D" parent="SadieSprite"]
@@ -178,5 +254,5 @@ script = ExtResource("6_n5hnw")
 [node name="Attack" type="Node" parent="StateMachine"]
 script = ExtResource("7_ct6lx")
 
-[connection signal="animation_finished" from="SadieAnimPlayer" to="." method="_on_sadie_anim_player_animation_finished"]
+[connection signal="body_entered" from="SadieSprite/WeaponHitbox" to="." method="_on_weapon_hitbox_body_entered"]
 [connection signal="animation_finished" from="SadieAnimPlayer" to="StateMachine/Attack" method="_on_sadie_anim_player_animation_finished"]

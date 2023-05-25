@@ -1,5 +1,6 @@
 extends PlayerState
 
+
 func physics_update(delta: float) -> void:
 	if not player.is_on_floor():
 		state_machine.transition_to("Air")

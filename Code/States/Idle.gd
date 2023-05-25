@@ -2,6 +2,7 @@ extends PlayerState
 
 func enter(_msg := {}) -> void:
 	player.velocity = Vector2.ZERO
+	player.anim_player.play("Idle")
 
 func update(_delta: float) -> void:
 	if not player.is_on_floor():
