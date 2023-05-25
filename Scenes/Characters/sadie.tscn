@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dib5obidn2lxd"]
+[gd_scene load_steps=13 format=3 uid="uid://dib5obidn2lxd"]
 
 [ext_resource type="Script" path="res://Code/Player.gd" id="1_aorbp"]
 [ext_resource type="Texture2D" uid="uid://bi37w12n2lu75" path="res://Assets/Characters/Sadie/sadiePlaceholder.png" id="1_tjfdi"]
@@ -6,10 +6,75 @@
 [ext_resource type="Script" path="res://Code/States/Idle.gd" id="4_euslh"]
 [ext_resource type="Script" path="res://Code/States/Air.gd" id="5_ddgix"]
 [ext_resource type="Script" path="res://Code/States/Run.gd" id="6_n5hnw"]
+[ext_resource type="Script" path="res://Scenes/Characters/Attack.gd" id="7_ct6lx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8luva"]
+size = Vector2(81, 62)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sxpcx"]
 radius = 28.0
 height = 110.0
+
+[sub_resource type="Animation" id="Animation_owcgn"]
+resource_name = "attack"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.22173]
+}
+
+[sub_resource type="Animation" id="Animation_jbxsi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lyqya"]
+_data = {
+"RESET": SubResource("Animation_jbxsi"),
+"attack": SubResource("Animation_owcgn")
+}
 
 [node name="Sadie" type="CharacterBody2D"]
 script = ExtResource("1_aorbp")
@@ -17,12 +82,26 @@ script = ExtResource("1_aorbp")
 [node name="SadieSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_tjfdi")
 
+[node name="WeaponHitbox" type="Area2D" parent="SadieSprite"]
+
+[node name="WeaponCollision" type="CollisionShape2D" parent="SadieSprite/WeaponHitbox"]
+position = Vector2(-76.5, -16)
+shape = SubResource("RectangleShape2D_8luva")
+disabled = true
+
 [node name="SadieColisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 6)
 shape = SubResource("CapsuleShape2D_sxpcx")
 
+[node name="SadieAnimPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("")
+libraries = {
+"": SubResource("AnimationLibrary_lyqya")
+}
+
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_we065")
+initial_state = NodePath("Air")
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("4_euslh")
@@ -32,3 +111,10 @@ script = ExtResource("5_ddgix")
 
 [node name="Run" type="Node" parent="StateMachine"]
 script = ExtResource("6_n5hnw")
+
+[node name="Attack" type="Node" parent="StateMachine"]
+script = ExtResource("7_ct6lx")
+
+[node name="Weapon" type="Sprite2D" parent="."]
+
+[connection signal="animation_finished" from="SadieAnimPlayer" to="StateMachine/Attack" method="_on_sadie_anim_player_animation_finished"]

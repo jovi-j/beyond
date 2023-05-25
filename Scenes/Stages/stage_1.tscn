@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqmx2wlp01v0k"]
+
+[ext_resource type="PackedScene" uid="uid://dib5obidn2lxd" path="res://Scenes/Characters/sadie.tscn" id="1_qxb6o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahkki"]
+size = Vector2(1206.5, 376)
+
+[node name="Stage_1" type="Node2D"]
+
+[node name="Chão Fase" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chão Fase"]
+position = Vector2(564.75, 660)
+shape = SubResource("RectangleShape2D_ahkki")
+
+[node name="Sadie" parent="." instance=ExtResource("1_qxb6o")]
+position = Vector2(678, 108)

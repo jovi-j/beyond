@@ -1,8 +1,5 @@
 extends PlayerState
 
-func enter(_msg := {}) -> void:
-	player.sprite.play("run")
-
 func physics_update(delta: float) -> void:
 	if not player.is_on_floor():
 		state_machine.transition_to("Air")
@@ -20,3 +17,5 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to("Air", {do_jump = true})
 	elif is_equal_approx(input_direction_x, 0.0):
 		state_machine.transition_to("Idle")
+	elif Input.is_action_just_pressed("attack"):
+		state_machine.transition_to("Attack")

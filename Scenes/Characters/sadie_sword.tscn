@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca2c8egr780bk"]
+
+[ext_resource type="Texture2D" uid="uid://cmuo5u4qrsx68" path="res://Assets/Characters/Sadie/Armas/SadieEspadaPlaceholder.png" id="1_iid3h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ls5rp"]
+size = Vector2(87, 20)
+
+[node name="SadieSword" type="Marker2D"]
+
+[node name="SwordArea" type="Area2D" parent="."]
+position = Vector2(-42, -81)
+rotation = 0.523599
+scale = Vector2(1, 1)
+
+[node name="SwordSprite" type="Sprite2D" parent="SwordArea"]
+rotation = 0.523599
+texture = ExtResource("1_iid3h")
+
+[node name="SwordColision" type="CollisionShape2D" parent="SwordArea"]
+rotation = 0.523599
+shape = SubResource("RectangleShape2D_ls5rp")
