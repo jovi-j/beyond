@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var gravity : float = 3500.0
 @export var jump_impulse : float = 1200.0
 
-@onready var sprite : Sprite2D = $SadieSprite
+@onready var sprite : AnimatedSprite2D = $SadieSprite
 @onready var anim_player : AnimationPlayer = $SadieAnimPlayer
 @onready var weapon_hitbox : CollisionShape2D = $SadieSprite/WeaponHitbox/WeaponCollision
 
