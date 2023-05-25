@@ -10,7 +10,6 @@ size = Vector2(87, 20)
 [node name="SwordArea" type="Area2D" parent="."]
 position = Vector2(-42, -81)
 rotation = 0.523599
-scale = Vector2(1, 1)
 
 [node name="SwordSprite" type="Sprite2D" parent="SwordArea"]
 rotation = 0.523599
