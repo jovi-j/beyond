@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://nyfcr8uslekh"]
+
+[ext_resource type="Theme" uid="uid://cahat88vpnbwd" path="res://Scenes/UI/TemaUI.tres" id="1_6vrfv"]
+[ext_resource type="Script" path="res://Code/UI/start.gd" id="1_o1kqu"]
+
+[node name="Start" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o1kqu")
+
+[node name="TextureRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="CenterContainer/VBoxContainer"]
+position = Vector2(329, 158)
+amount = 300
+lifetime = 1.5
+randomness = 1.0
+lifetime_randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(300, 50)
+gravity = Vector2(0, -300)
+scale_amount_min = 0.0
+scale_amount_max = 19.69
+color = Color(0.788235, 0, 0, 0.156863)
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_6vrfv")
+theme_override_font_sizes/font_size = 250
+text = "Beyond"
+metadata/_edit_lock_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Start" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_6vrfv")
+text = "Start"
+
+[node name="Exit" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_6vrfv")
+text = "Exit"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/Exit" to="." method="_on_exit_pressed"]

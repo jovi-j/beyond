@@ -374,7 +374,6 @@ script = ExtResource("7_ct6lx")
 script = ExtResource("9_dn8mq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 15

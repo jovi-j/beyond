@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqmx2wlp01v0k"]
+[gd_scene load_steps=12 format=3 uid="uid://cqmx2wlp01v0k"]
 
 [ext_resource type="PackedScene" uid="uid://dib5obidn2lxd" path="res://Scenes/Characters/sadie.tscn" id="1_qxb6o"]
 [ext_resource type="Texture2D" uid="uid://c73f5kk5blptl" path="res://Assets/Stages/Tiles/Assets/Assets.png" id="3_vn77j"]
 [ext_resource type="PackedScene" uid="uid://dsi040ewblbl6" path="res://Scenes/Characters/Enemy/Slime/slime.tscn" id="4_r3q6f"]
 [ext_resource type="Script" path="res://Code/Objects/ItemManager.gd" id="4_t1sbx"]
+[ext_resource type="Script" path="res://Scenes/Stages/GameOverLayer.gd" id="5_l3xye"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xyfrk"]
 texture = ExtResource("3_vn77j")
@@ -464,6 +465,33 @@ terrain_set_1/terrain_0/name = "Bedrock"
 terrain_set_1/terrain_0/color = Color(0.529412, 0.2, 0.67451, 1)
 sources/0 = SubResource("TileSetAtlasSource_xyfrk")
 
+[sub_resource type="Gradient" id="Gradient_0xsfg"]
+colors = PackedColorArray(0.447059, 0, 0, 1, 0.447059, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xc6oh"]
+gradient = SubResource("Gradient_0xsfg")
+
+[sub_resource type="Animation" id="Animation_iqbo3"]
+resource_name = "Game_over"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameOverLayer/Overlay:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gas3g"]
+_data = {
+"Game_over": SubResource("Animation_iqbo3")
+}
+
 [node name="Stage_1" type="Node2D"]
 
 [node name="Sadie" parent="." instance=ExtResource("1_qxb6o")]
@@ -497,3 +525,27 @@ position = Vector2(986, 1573)
 
 [node name="Slime4" parent="." instance=ExtResource("4_r3q6f")]
 position = Vector2(403, 1469)
+
+[node name="GameOverLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("5_l3xye")
+
+[node name="Overlay" type="TextureRect" parent="GameOverLayer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("GradientTexture1D_xc6oh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GameOverLayer"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_gas3g")
+}
+
+[connection signal="died" from="Sadie" to="GameOverLayer" method="_on_sadie_died"]
+[connection signal="animation_finished" from="GameOverLayer/AnimationPlayer" to="GameOverLayer" method="_on_animation_player_animation_finished"]
