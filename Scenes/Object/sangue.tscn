@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqtkd0csl6epu"]
+
+[ext_resource type="Script" path="res://Code/Objects/sangue.gd" id="1_aq225"]
+[ext_resource type="Texture2D" uid="uid://cfwycasr251vo" path="res://Assets/Object/gota_sague.png" id="1_teeen"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2m5xr"]
+
+[sub_resource type="Animation" id="Animation_cepax"]
+resource_name = "flutuar"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_va7sd"]
+_data = {
+"flutuar": SubResource("Animation_cepax")
+}
+
+[sub_resource type="Curve" id="Curve_n53w8"]
+min_value = -1.0
+_data = [Vector2(0.00802139, -1), 0.0, 0.0, 0, 0, Vector2(1, -0.300613), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Sangue" type="Area2D"]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource("1_aq225")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -0.0370883)
+texture = ExtResource("1_teeen")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_2m5xr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_va7sd")
+}
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 4
+lifetime = 1.5
+randomness = 0.59
+lifetime_randomness = 0.53
+emission_shape = 1
+emission_sphere_radius = 13.8
+gravity = Vector2(0, -50)
+color = Color(1, 0.188235, 0.137255, 1)
+hue_variation_min = -0.07
+hue_variation_max = 0.02
+hue_variation_curve = SubResource("Curve_n53w8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

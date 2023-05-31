@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://blsod2dorb31p"]
+
+[ext_resource type="Theme" uid="uid://cahat88vpnbwd" path="res://Scenes/UI/TemaUI.tres" id="1_flutm"]
+
+[sub_resource type="Gradient" id="Gradient_bccl2"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_muy37"]
+gradient = SubResource("Gradient_bccl2")
+
+[node name="Cutscene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("GradientTexture1D_muy37")
+
+[node name="VBoxContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_flutm")
+theme_override_font_sizes/font_size = 30
+text = "Hmmmm… você...
+Já era tempo de surgir um novo renascido. Vamos ver como você vai se sair...
+"

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi37w12n2lu75"
-path="res://.godot/imported/sadiePlaceholder.png-b49d6d7f40cb4d2bd8cc7c6f70d6eafb.ctex"
+uid="uid://c2yi7a52x20fp"
+path="res://.godot/imported/MV Icons Complete Sheet Free - ALL.png-fe4241be2cd770fb8e2f7e0a9e7b085e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/Sadie/sadiePlaceholder.png"
-dest_files=["res://.godot/imported/sadiePlaceholder.png-b49d6d7f40cb4d2bd8cc7c6f70d6eafb.ctex"]
+source_file="res://Assets/UI/MV Icons Complete Sheet - Free Icons/MV Icons Complete Sheet Free - ALL.png"
+dest_files=["res://.godot/imported/MV Icons Complete Sheet Free - ALL.png-fe4241be2cd770fb8e2f7e0a9e7b085e.ctex"]
 
 [params]
 

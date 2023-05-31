@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmuo5u4qrsx68"
-path="res://.godot/imported/SadieEspadaPlaceholder.png-88e95d48153c661bfb926f414087e84a.ctex"
+uid="uid://c11wqamfg7h62"
+path="res://.godot/imported/Sprite Sheet - Blue Jump Up.png-3844c7c3661b9ce6a80a8f1fad69b985.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/Sadie/Armas/SadieEspadaPlaceholder.png"
-dest_files=["res://.godot/imported/SadieEspadaPlaceholder.png-88e95d48153c661bfb926f414087e84a.ctex"]
+source_file="res://Assets/Characters/Enemies/Slime Enemy/Slime Enemy/Jump/Sprite Sheet - Blue Jump Up.png"
+dest_files=["res://.godot/imported/Sprite Sheet - Blue Jump Up.png-3844c7c3661b9ce6a80a8f1fad69b985.ctex"]
 
 [params]
 
