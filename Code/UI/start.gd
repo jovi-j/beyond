@@ -12,9 +12,14 @@ func _process(delta):
 
 
 func _on_start_pressed():
-	get_tree().change_scene_to_file("res://Scenes/Stages/stage_1.tscn")
+	$CanvasLayer/Playe.play("Fadeout")
 
 
 
 func _on_exit_pressed():
 	get_tree().quit()
+
+
+func _on_playe_animation_finished(anim_name):
+	if anim_name == "Fadeout":
+		get_tree().change_scene_to_file("res://Scenes/Stages/cutscene.tscn")

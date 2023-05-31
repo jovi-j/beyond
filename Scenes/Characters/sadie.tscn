@@ -9,9 +9,9 @@
 [ext_resource type="Script" path="res://Code/States/Air.gd" id="5_ddgix"]
 [ext_resource type="Script" path="res://Code/States/Run.gd" id="6_n5hnw"]
 [ext_resource type="Script" path="res://Scenes/Characters/Attack.gd" id="7_ct6lx"]
-[ext_resource type="Texture2D" uid="uid://cvxu4q443ou83" path="res://icon.svg" id="9_85vrk"]
 [ext_resource type="Script" path="res://Code/States/Knockback.gd" id="9_dn8mq"]
 [ext_resource type="Theme" uid="uid://cahat88vpnbwd" path="res://Scenes/UI/TemaUI.tres" id="10_nqjrn"]
+[ext_resource type="Texture2D" uid="uid://buwpbpf2dsu64" path="res://Assets/Characters/Sadie/Sadie Portrait.png" id="11_6xxwq"]
 [ext_resource type="Texture2D" uid="uid://c2yi7a52x20fp" path="res://Assets/UI/MV Icons Complete Sheet - Free Icons/MV Icons Complete Sheet Free - ALL.png" id="11_wbbmn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w4kl5"]
@@ -391,7 +391,8 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("9_85vrk")
+texture = ExtResource("11_6xxwq")
+expand_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(10, 0)
