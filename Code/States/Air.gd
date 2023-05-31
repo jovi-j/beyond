@@ -4,7 +4,6 @@ extends PlayerState
 func enter(msg := {}) -> void:
 	if msg.has("do_jump"):
 		player.velocity.y = -player.jump_impulse
-	player.sprite.play("air")
 
 func physics_update(delta: float) -> void:
 	var input_direction_x: float = (
@@ -20,3 +19,5 @@ func physics_update(delta: float) -> void:
 			state_machine.transition_to("Idle")
 		else:
 			state_machine.transition_to("Run")
+	if Input.is_action_just_pressed("attack"):
+		state_machine.transition_to("Attack")

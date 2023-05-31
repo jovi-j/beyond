@@ -1,5 +1,7 @@
 extends PlayerState
 
+func enter(_msg := {}) -> void:
+	player.anim_player.play("Attack")
 
 func physics_update(delta: float) -> void:
 	if not player.is_on_floor():
@@ -14,9 +16,12 @@ func physics_update(delta: float) -> void:
 	player.velocity.y += player.gravity * delta
 	player.move_and_slide()
 
-	if Input.is_action_just_pressed("jump"):
-		state_machine.transition_to("Air", {do_jump = true})
-	elif is_equal_approx(input_direction_x, 0.0):
+func _on_sadie_anim_player_animation_finished(anim_name):
+	if anim_name == "Attack":
+		if player.velocity.x != 0 and player.is_on_floor():
+			state_machine.transition_to("Run")
+			return
+		elif not player.is_on_floor():
+			state_machine.transition_to("Air")
+			return
 		state_machine.transition_to("Idle")
-	elif Input.is_action_just_pressed("attack"):
-		state_machine.transition_to("Attack")

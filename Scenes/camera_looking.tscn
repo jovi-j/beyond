@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cxn5aige1cfl6"]
+
+[node name="CameraLooking" type="Marker2D"]
+position = Vector2(216, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-216, 0)
+position_smoothing_enabled = true
