@@ -8,12 +8,9 @@ func _ready():
 		if children.is_in_group("enemies"):
 			children.connect("drop_item", _on_slime_drop_item)
 
-func _process(delta):
-	pass
 
-
-func _on_slime_drop_item(position : Vector2):
+func _on_slime_drop_item(_position : Vector2):
 	var new_blood = blood.instantiate()
-	new_blood.position = position
+	new_blood.position = _position
 	add_child(new_blood)
 	

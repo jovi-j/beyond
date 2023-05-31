@@ -6,23 +6,23 @@ func enter(msg := {}) -> void:
 		enemy.anim_player.play("Jump_charge")
 
 func update(delta):
-	
-	enemy.velocity.y += enemy.gravity * delta
-	enemy.move_and_slide()
+	if enemy.anim_player.current_animation != "Jump_charge":
+		enemy.velocity.y += enemy.gravity * delta
+		enemy.move_and_slide()
 
-	if enemy.velocity.y < 0:
-		enemy.anim_player.play("Jump_up")
-	if enemy.velocity.y > 0:
-		enemy.anim_player.play("Jump_down")
+		if enemy.velocity.y < 0:
+			enemy.anim_player.play("Jump_up")
+		if enemy.velocity.y > 0:
+			enemy.anim_player.play("Jump_down")
 
-	if enemy.is_on_floor():
-		enemy.anim_player.play("Jump_finish")
+		if enemy.is_on_floor():
+			enemy.anim_player.play("Jump_finish")
 
 func _on_enemy_animations_animation_finished(anim_name:StringName):
 	if anim_name == "Jump_charge":
 		enemy.anim_player.play("Jump_up")
-		enemy.velocity.y = -enemy.Jump_impulse
-		enemy.velocity.x += 30
+		enemy.velocity.y = -1200.0
+		enemy.velocity.x = 300 * enemy.enemy_dir.x
 	elif anim_name == "Jump_up":
 		enemy.anim_player.play("Jump_down")
 	elif anim_name == "Jump_down":

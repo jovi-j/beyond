@@ -16,6 +16,8 @@ var enemy_dir = Vector2()
 @onready var idle_timer : Timer = $Timer
 @onready var state_machine : StateMachine = $StateMachine
 @onready var invuln_timer : Timer = $InvulnTimer
+@onready var wallbounce_timer : Timer = $WallbounceTimer
+
 signal drop_item(position : Vector2)
 
 func _ready():

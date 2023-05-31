@@ -18,6 +18,7 @@ var player_dir = Vector2()
 @onready var state_machine : StateMachine = $StateMachine
 @onready var invuln_timer : Timer = $InvulnTimer
 @onready var elixir_counter : Label = $CanvasLayer/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ElixirCounter
+@onready var camera : Camera2D =  $CameraLooking/Camera2D
 
 func _ready():
 	up_direction = Vector2.UP

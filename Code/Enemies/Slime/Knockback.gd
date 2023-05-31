@@ -7,7 +7,7 @@ func enter(msg := {}) -> void:
 	tween.tween_property(enemy,"modulate:v", 1, 0.2).from(15) 
 	enemy.health -= msg['damage']
 
-func physics_update(delta: float) -> void:
+func physics_update(_delta: float) -> void:
 	enemy.move_and_slide()
 	if enemy.health <= 0:
 		state_machine.transition_to("Death")

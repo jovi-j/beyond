@@ -1,10 +1,11 @@
-[gd_scene load_steps=31 format=3 uid="uid://dib5obidn2lxd"]
+[gd_scene load_steps=40 format=3 uid="uid://dib5obidn2lxd"]
 
 [ext_resource type="Script" path="res://Code/Player.gd" id="1_aorbp"]
 [ext_resource type="Texture2D" uid="uid://cy6ng6c1uk2r4" path="res://Assets/Characters/Sadie/Sprite Sadie Attack.png" id="2_1xp65"]
+[ext_resource type="Texture2D" uid="uid://bmkee7tvi3j61" path="res://Assets/Characters/Sadie/Sprite Sadie Idle.png" id="3_3lj3n"]
 [ext_resource type="Script" path="res://Code/StateMachine.gd" id="3_we065"]
 [ext_resource type="Script" path="res://Code/States/Idle.gd" id="4_euslh"]
-[ext_resource type="Texture2D" uid="uid://bvsjmbix13icn" path="res://Assets/Characters/Sadie/Sprite Sadie Idle Blink.png" id="4_kky2e"]
+[ext_resource type="Texture2D" uid="uid://doqqycxt3m7mu" path="res://Assets/Characters/Sadie/Sprite Sadie Walking.png" id="4_xo0ni"]
 [ext_resource type="Script" path="res://Code/States/Air.gd" id="5_ddgix"]
 [ext_resource type="Script" path="res://Code/States/Run.gd" id="6_n5hnw"]
 [ext_resource type="Script" path="res://Scenes/Characters/Attack.gd" id="7_ct6lx"]
@@ -29,21 +30,49 @@ region = Rect2(450, 0, 150, 150)
 atlas = ExtResource("2_1xp65")
 region = Rect2(300, 0, 150, 150)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_enw41"]
-atlas = ExtResource("4_kky2e")
-region = Rect2(450, 0, 150, 150)
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpqmk"]
+atlas = ExtResource("3_3lj3n")
+region = Rect2(0, 0, 150, 150)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ywwdc"]
-atlas = ExtResource("4_kky2e")
+[sub_resource type="AtlasTexture" id="AtlasTexture_06tl0"]
+atlas = ExtResource("3_3lj3n")
 region = Rect2(150, 0, 150, 150)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_clteh"]
-atlas = ExtResource("4_kky2e")
+[sub_resource type="AtlasTexture" id="AtlasTexture_5a400"]
+atlas = ExtResource("3_3lj3n")
 region = Rect2(300, 0, 150, 150)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_73313"]
-atlas = ExtResource("4_kky2e")
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4ppq"]
+atlas = ExtResource("3_3lj3n")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iamax"]
+atlas = ExtResource("4_xo0ni")
 region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23lj5"]
+atlas = ExtResource("4_xo0ni")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u525d"]
+atlas = ExtResource("4_xo0ni")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gu3gh"]
+atlas = ExtResource("4_xo0ni")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gu0b"]
+atlas = ExtResource("4_xo0ni")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3rnh"]
+atlas = ExtResource("4_xo0ni")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26vvl"]
+atlas = ExtResource("4_xo0ni")
+region = Rect2(900, 0, 150, 150)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_exuuk"]
 animations = [{
@@ -69,19 +98,45 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_enw41")
+"texture": SubResource("AtlasTexture_tpqmk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ywwdc")
+"texture": SubResource("AtlasTexture_06tl0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_clteh")
+"texture": SubResource("AtlasTexture_5a400")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_73313")
+"texture": SubResource("AtlasTexture_n4ppq")
 }],
 "loop": true,
 "name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iamax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23lj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u525d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gu3gh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gu0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3rnh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26vvl")
+}],
+"loop": true,
+"name": &"Run",
 "speed": 5.0
 }]
 
@@ -211,11 +266,53 @@ tracks/2/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_scwhd"]
+resource_name = "Run"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WeaponHitbox/WeaponCollision:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 4, 5, 6, 5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Run"]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lyqya"]
 _data = {
 "Attack": SubResource("Animation_m00ip"),
 "Idle": SubResource("Animation_huhgu"),
-"RESET": SubResource("Animation_xrg8w")
+"RESET": SubResource("Animation_xrg8w"),
+"Run": SubResource("Animation_scwhd")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8h3w7"]
@@ -230,7 +327,7 @@ bg_color = Color(0.67451, 0, 0.105882, 1)
 
 [node name="Sadie" type="CharacterBody2D"]
 collision_layer = 8
-collision_mask = 119
+collision_mask = 117
 floor_constant_speed = true
 script = ExtResource("1_aorbp")
 
@@ -277,6 +374,7 @@ script = ExtResource("7_ct6lx")
 script = ExtResource("9_dn8mq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 15

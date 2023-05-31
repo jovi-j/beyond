@@ -1,9 +1,10 @@
 extends EnemyState
 
 
-func enter(msg := {}) -> void:
+func enter(_msg := {}) -> void:
 	enemy.anim_player.play("Death")
 	enemy.weapon_hitbox.set_collision_mask_value(4, false)
+	enemy.set_collision_mask_value(4, false)
 	
 func update(delta) -> void:
 	enemy.velocity.y += enemy.gravity * delta

@@ -5,6 +5,7 @@ func physics_update(delta: float) -> void:
 	if not player.is_on_floor():
 		state_machine.transition_to("Air")
 		return
+	player.anim_player.play("Run")
 
 	var input_direction_x: float = (
 		Input.get_action_strength("move_right")
