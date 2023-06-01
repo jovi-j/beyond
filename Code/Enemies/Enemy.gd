@@ -20,7 +20,7 @@ var enemy_dir = Vector2()
 
 signal drop_item(position : Vector2)
 
-func _ready():
+func _ready() -> void:
 	up_direction = Vector2.UP
 
 func flip() -> void:
@@ -33,8 +33,9 @@ func flip() -> void:
 	player_detection.target_position.x *= -1
 
 func _on_enemy_weapon_hitbox_body_entered(body):
-	if body.name == "Sadie":
+	if body.name == "Sadie" and health > 0:
 		body.get_damage(40, enemy_dir)
 		
 func get_damage(damage : int, direction : Vector2) -> void:
-	state_machine.transition_to("Knockback", {"damage":damage, "prev_state":state_machine.state.name, "direction":direction})
+	if health > 0:
+		state_machine.transition_to("Knockback", {"damage":damage, "prev_state":state_machine.state.name, "direction":direction})

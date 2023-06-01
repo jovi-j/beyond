@@ -536,7 +536,7 @@ shape = SubResource("RectangleShape2D_fv0ls")
 [node name="EnemySprite" type="AnimatedSprite2D" parent="."]
 self_modulate = Color(5, 0, 0, 1)
 sprite_frames = SubResource("SpriteFrames_xayb8")
-animation = &"Jump_start"
+animation = &"Idle"
 metadata/_edit_lock_ = true
 
 [node name="StateMachine" type="Node" parent="."]

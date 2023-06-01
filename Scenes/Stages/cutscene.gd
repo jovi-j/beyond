@@ -11,15 +11,9 @@ func _ready():
 			$CenterContainer/Label.text = "Again..."
 		elif NewResource.deaths == 2:
 			$CenterContainer/Label.text = "One more time..."
-		elif NewResource.deaths == 3:
+		elif NewResource.deaths >= 3:
 			$CenterContainer/Label.text = "Do not give up..."
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
+			
 func _on_animation_player_2_animation_finished(anim_name):
 	if anim_name == "Start game":
 		get_tree().change_scene_to_file("res://Scenes/Stages/stage_1.tscn")

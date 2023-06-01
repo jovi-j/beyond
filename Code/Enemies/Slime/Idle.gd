@@ -8,4 +8,5 @@ func enter(_msg := {}) -> void:
 
 
 func _on_timer_timeout():
-	state_machine.transition_to("Walking")
+	if enemy.health > 0:
+		state_machine.transition_to("Walking")

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bmkee7tvi3j61" path="res://Assets/Characters/Sadie/Sprite Sadie Idle.png" id="3_3lj3n"]
 [ext_resource type="Script" path="res://Code/StateMachine.gd" id="3_we065"]
 [ext_resource type="Script" path="res://Code/States/Idle.gd" id="4_euslh"]
-[ext_resource type="Texture2D" uid="uid://doqqycxt3m7mu" path="res://Assets/Characters/Sadie/Sprite Sadie Walking.png" id="4_xo0ni"]
+[ext_resource type="Texture2D" uid="uid://bbie8tvl524ba" path="res://Assets/Characters/Sadie/Sprite Sadie Walking 6 frames.png" id="4_hoebb"]
 [ext_resource type="Script" path="res://Code/States/Air.gd" id="5_ddgix"]
 [ext_resource type="Script" path="res://Code/States/Run.gd" id="6_n5hnw"]
 [ext_resource type="Script" path="res://Scenes/Characters/Attack.gd" id="7_ct6lx"]
@@ -14,21 +14,23 @@
 [ext_resource type="Texture2D" uid="uid://buwpbpf2dsu64" path="res://Assets/Characters/Sadie/Sadie Portrait.png" id="11_6xxwq"]
 [ext_resource type="Texture2D" uid="uid://c2yi7a52x20fp" path="res://Assets/UI/MV Icons Complete Sheet - Free Icons/MV Icons Complete Sheet Free - ALL.png" id="11_wbbmn"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w4kl5"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2kcx2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5vmm"]
 atlas = ExtResource("2_1xp65")
 region = Rect2(0, 0, 150, 150)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wppar"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlj33"]
 atlas = ExtResource("2_1xp65")
 region = Rect2(150, 0, 150, 150)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_78vqb"]
-atlas = ExtResource("2_1xp65")
-region = Rect2(450, 0, 150, 150)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0ku0i"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1oflr"]
 atlas = ExtResource("2_1xp65")
 region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_doc1w"]
+atlas = ExtResource("2_1xp65")
+region = Rect2(450, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tpqmk"]
 atlas = ExtResource("3_3lj3n")
@@ -46,51 +48,44 @@ region = Rect2(300, 0, 150, 150)
 atlas = ExtResource("3_3lj3n")
 region = Rect2(450, 0, 150, 150)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iamax"]
-atlas = ExtResource("4_xo0ni")
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cx0i"]
+atlas = ExtResource("4_hoebb")
 region = Rect2(0, 0, 150, 150)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_23lj5"]
-atlas = ExtResource("4_xo0ni")
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbcux"]
+atlas = ExtResource("4_hoebb")
 region = Rect2(150, 0, 150, 150)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u525d"]
-atlas = ExtResource("4_xo0ni")
+[sub_resource type="AtlasTexture" id="AtlasTexture_pwvtr"]
+atlas = ExtResource("4_hoebb")
 region = Rect2(300, 0, 150, 150)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gu3gh"]
-atlas = ExtResource("4_xo0ni")
+[sub_resource type="AtlasTexture" id="AtlasTexture_smvoy"]
+atlas = ExtResource("4_hoebb")
 region = Rect2(450, 0, 150, 150)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0gu0b"]
-atlas = ExtResource("4_xo0ni")
+[sub_resource type="AtlasTexture" id="AtlasTexture_6w4ud"]
+atlas = ExtResource("4_hoebb")
 region = Rect2(600, 0, 150, 150)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h3rnh"]
-atlas = ExtResource("4_xo0ni")
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2rw5"]
+atlas = ExtResource("4_hoebb")
 region = Rect2(750, 0, 150, 150)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_26vvl"]
-atlas = ExtResource("4_xo0ni")
-region = Rect2(900, 0, 150, 150)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_exuuk"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w4kl5")
+"texture": SubResource("AtlasTexture_r5vmm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wppar")
+"texture": SubResource("AtlasTexture_vlj33")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_78vqb")
+"texture": SubResource("AtlasTexture_1oflr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0ku0i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wppar")
+"texture": SubResource("AtlasTexture_doc1w")
 }],
 "loop": true,
 "name": &"Attack",
@@ -115,25 +110,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_iamax")
+"texture": SubResource("AtlasTexture_7cx0i")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_23lj5")
+"texture": SubResource("AtlasTexture_bbcux")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u525d")
+"texture": SubResource("AtlasTexture_pwvtr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gu3gh")
+"texture": SubResource("AtlasTexture_smvoy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0gu0b")
+"texture": SubResource("AtlasTexture_6w4ud")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_h3rnh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_26vvl")
+"texture": SubResource("AtlasTexture_a2rw5")
 }],
 "loop": true,
 "name": &"Run",
@@ -268,7 +260,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_scwhd"]
 resource_name = "Run"
-length = 0.8
+length = 0.6
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -289,10 +281,10 @@ tracks/1/path = NodePath(".:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [1, 4, 5, 6, 5]
+"values": [0, 1, 2, 3, 4, 5]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -332,6 +324,8 @@ floor_constant_speed = true
 script = ExtResource("1_aorbp")
 
 [node name="SadieSprite" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_2kcx2")
+position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_exuuk")
 animation = &"Idle"
 
@@ -474,6 +468,21 @@ emission_shape = 1
 emission_sphere_radius = 27.88
 gravity = Vector2(0, -100)
 color = Color(1, 0, 0.929412, 0.478431)
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+position = Vector2(-4, -50)
+emitting = false
+amount = 50
+lifetime = 2.0
+one_shot = true
+emission_shape = 2
+emission_sphere_radius = 16.4
+particle_flag_align_y = true
+gravity = Vector2(0, 0)
+radial_accel_min = 10.0
+radial_accel_max = 50.0
+scale_amount_min = 0.0
+color = Color(1, 0, 0, 1)
 
 [connection signal="body_entered" from="SadieSprite/WeaponHitbox" to="." method="_on_weapon_hitbox_body_entered"]
 [connection signal="animation_finished" from="SadieAnimPlayer" to="StateMachine/Attack" method="_on_sadie_anim_player_animation_finished"]
