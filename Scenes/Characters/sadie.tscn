@@ -456,7 +456,6 @@ value = 59.0
 show_percentage = false
 
 [node name="CameraLooking" type="Marker2D" parent="."]
-position = Vector2(100, -51)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="CameraLooking"]

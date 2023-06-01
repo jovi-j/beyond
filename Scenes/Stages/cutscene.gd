@@ -3,8 +3,16 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$AnimationPlayer.play("Float")
+	$FloatAnim.play("Float")
 	$AnimationPlayer2.play("Start game")
+	if NewResource.deaths > 0:
+		$AnimationPlayer3.play("ShowText")
+		if NewResource.deaths == 1:
+			$CenterContainer/Label.text = "Again..."
+		elif NewResource.deaths == 2:
+			$CenterContainer/Label.text = "One more time..."
+		elif NewResource.deaths == 3:
+			$CenterContainer/Label.text = "Do not give up..."
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

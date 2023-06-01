@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cahat88vpnbwd"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://cahat88vpnbwd"]
 
 [ext_resource type="FontFile" uid="uid://cw0vos2imc5sg" path="res://Assets/UI/Fonts/AncientModernTales.ttf" id="1_6i4gn"]
 
@@ -10,6 +10,8 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rg2ia"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bfose"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jxiyy"]
 bg_color = Color(0.243137, 0, 0, 1)
 
@@ -19,10 +21,13 @@ bg_color = Color(0.666667, 0, 0, 1)
 [resource]
 default_font = ExtResource("1_6i4gn")
 default_font_size = 40
+Button/colors/font_focus_color = Color(1, 0.211765, 0.160784, 1)
 Button/colors/font_hover_color = Color(1, 0.211765, 0.160784, 1)
+Button/colors/font_pressed_color = Color(1, 0.211765, 0.160784, 1)
 Button/styles/disabled = SubResource("StyleBoxEmpty_bbvgn")
 Button/styles/focus = SubResource("StyleBoxEmpty_w6akx")
 Button/styles/hover = SubResource("StyleBoxEmpty_3j2hb")
 Button/styles/normal = SubResource("StyleBoxEmpty_rg2ia")
+Button/styles/pressed = SubResource("StyleBoxEmpty_bfose")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_jxiyy")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_pd3m6")

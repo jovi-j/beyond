@@ -2,6 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 signal died
+signal pause_game
 @export var speed : float= 500.0
 @export var gravity : float = 3500.0
 @export var jump_impulse : float = 1200.0
@@ -26,12 +27,16 @@ func _ready():
 	health.value = 100
 	blood.value = 0
 	update_elixir_counter()
+	var tween = get_tree().create_tween()
+	tween.tween_property($CameraLooking, "position", Vector2(100,-51), 0.2)
 
 func update_elixir_counter() -> void:
 	elixir_counter.text = str(elixirs) + "/" + str(max_elixirs)
 	
 
 func _physics_process(_delta):
+	if Input.is_action_just_pressed("pause"):
+		emit_signal("pause_game")
 	if velocity.x < 0:
 		player_dir = Vector2.LEFT
 		sprite.flip_h = true
@@ -43,6 +48,7 @@ func _physics_process(_delta):
 		weapon_hitbox.position.x = 70
 		$CameraLooking.position.x = 100
 	if health.value <= 0:
+		NewResource.deaths += 1
 		emit_signal("died")
 	if Input.is_action_just_pressed("use_elixir"):
 		use_elixir()

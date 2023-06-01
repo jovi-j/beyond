@@ -100,12 +100,16 @@ alignment = 1
 [node name="Start" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+focus_neighbor_right = NodePath("../Exit")
+focus_next = NodePath("../Exit")
 theme = ExtResource("1_6vrfv")
 text = "Start"
 
 [node name="Exit" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Start")
+focus_next = NodePath("../Start")
 theme = ExtResource("1_6vrfv")
 text = "Exit"
 
